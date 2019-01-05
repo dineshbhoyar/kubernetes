@@ -13,10 +13,10 @@ basics of kubernetes
   - The nodes communicate with the master using the Kubernetes API which master exposes.
   - `Minikube` is a lightweight Kubernetes implementation that creates a VM on your local machine and deploys a simple cluster containing only one node.
   
-  ## Minikube
-  - install using `sudo apt-get install`
-  - get version `minikube version
-  - starting kubernetes on local system `minikube start`
+## Minikube
+- install using `sudo apt-get install`
+- get version `minikube version
+- starting kubernetes on local system `minikube start`
 ## kubectl
  - its a commandline tool to interact with the kubernetes bootcamp
  - check version `kubectl version`
