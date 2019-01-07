@@ -33,4 +33,21 @@ basics of kubernetes
 - pods inside kubernetes are running inside private/isolated network. they are visibile to other pos with in the cluster but not outside.
 - The `kubectl proxy` command can create a proxy that will forward communications into the cluster-wide, private network. 
 - use `curl` utility to communicae to cluster e;g `curl http://localhost:8001/version`
+## Explore your app
+- Pods are created when we create deployment modules , pods host application instances. 
+- A `Pod` is a Kubernetes abstraction that represents a group of one or more application containers and some shared resources for those containers(volumes,networling ,instruction to how to run images and ports ).
+- The containers in a Pod share an `IP Address` and `port` space, are always co-located and co-scheduled, and run in a shared context on the same Node.
+- A Pod always runs on a Node.
+- A Node can have multiple pods, and the Kubernetes master automatically handles scheduling the pods across the Nodes in the cluster.
+- Every Kubernetes Node runs at least:
+  - `Kubelet`, a process responsible for communication between the Kubernetes Master and the Node; it manages the Pods and the containers running on a machine.
+  - A `container runtime` (like Docker, rkt) responsible for pulling the container image from a registry, unpacking the container, and running the application.
+  - Containers should only be scheduled together in a single Pod if they are tightly coupled and need to share resources such as disk.
+- The most common operations can be done with the following kubectl commands:
+  - `kubectl get` - list resources
+  - `kubectl describe` - show detailed information about a resource
+  - `kubectl logs` - print the logs from a container in a pod
+  - `kubectl exec` - execute a command on a container in a pod
+
+
 
