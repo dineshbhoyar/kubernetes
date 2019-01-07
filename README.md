@@ -22,3 +22,15 @@ basics of kubernetes
  - check version `kubectl version`
  - getting cluster details `kubectl cluster-info`
  - This command shows all nodes that can be used to host our applications. `kubectl get nodes`
+## Deploying app
+- `kubectl` utility is used to deploy apps on kuberbates nodes
+- to create a new deployment run `kubectl run kubenetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8080`
+  - will create a new depolyment with name `kubenetes-bootcamp`
+  - will scheduled the application to run on that Node (one in our case)
+  - will export port 8080 to external world to interact with app
+  - configured the cluster to reschedule the instance on a new Node when needed
+- check deployment details `kubectl get deployments`
+- pods inside kubernetes are running inside private/isolated network. they are visibile to other pos with in the cluster but not outside.
+- The `kubectl proxy` command can create a proxy that will forward communications into the cluster-wide, private network. 
+- use `curl` utility to communicae to cluster e;g `curl http://localhost:8001/version`
+
