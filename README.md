@@ -68,3 +68,6 @@ basics of kubernetes
 - `kubectl scale deployments/kubernetes-bootcamp --replicas=4`  where replicas define nember of replicas os deploymant to create  
 ## Updating App
 -  `Rolling updates` allow Deployment's update to take place with zero downtime by incrementally updating Pods instances with new ones. 
+- to update image `- kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2`
+- check the status of rollout `kubectl rollout status deployments/kubernetes-bootcamp`
+- rollback `kubectl rollout undo deployments/kubernetes-bootcamp`
