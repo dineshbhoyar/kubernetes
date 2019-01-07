@@ -48,6 +48,23 @@ basics of kubernetes
   - `kubectl describe` - show detailed information about a resource
   - `kubectl logs` - print the logs from a container in a pod
   - `kubectl exec` - execute a command on a container in a pod
+  - getting pod naem `export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
+  - communicating to pod `curl http://localhost:8001/api/v1/namespaces/default/pods/$POD_NAME/proxy/`
+  - `kubectl log $PD_NAME`
+  - `kubectl exec $POD_NAME env`
+  -  getting bash prompt of pod `kubectl exec -it $POD_NAME bash`
 
+## Expose Your App Publicly (kubernetes services)
+- A `ReplicaSet` might then dynamically drive the cluster back to desired state via creation of new Pods to keep your application running.
+- A `Service` in Kubernetes is an abstraction which defines a logical set of Pods and a policy by which to access them.defined using YAML or JSON
+- The `set of Pods` targeted by a Service is usually determined by a `LabelSelector`
+- Although each Pod has a unique IP address, those IPs are not exposed outside the cluster without a Service.
+- `kubectl get services`
+-  creating new service `kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080`
+- applying lable to pods `kubectl label pod $POD_NAME app=v1`
+- deleting service `kubectl delete service -l run=kubernetes-bootcamp`
 
-
+## Scaling aplication
+- `kubectl scale deployments/kubernetes-bootcamp --replicas=4`  where replicas define nember of replicas os deploymant to create  
+## Updating App
+-  `Rolling updates` allow Deployment's update to take place with zero downtime by incrementally updating Pods instances with new ones. 
